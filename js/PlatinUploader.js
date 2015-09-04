@@ -6,26 +6,19 @@ $.fn.platinForm = function (options){
             createSelect: "<span class='btn btn-success fileinput-button'><i class='glyphicon glyphicon-plus'></i><span>Dosya Seç...</span></span>",
 			progressContainer: "<div class='container progress_container'></div>",
 			createFileProgress: "<div class='col-xs-2 progress_col'><div class='uploaded-name'></div><div class='uploaded-img'></div><div class='progress'><div class='progress-bar' role='progressbar' style='width:0%;'>0%</div></div></div>",
-			createDragArea: "<div class='dragArea'>Görsellerinizi Buraya Sürükleyin</div>"
+			createDragArea: "<div class='dragArea'><div class='dragareatext'>Görsellerinizi Buraya Sürükleyin</div></div>"
         }, options );
-		
-/*	var hiddenInput = {'display': "none", 'visibility': "hidden", 'position': "absolute", 'top':"-100px", 'left':"-100px"};
-	var createInput = "<input type='file' name='files[]' multiple>";
-	var createSelect = "<span class='btn btn-success fileinput-button'><i class='glyphicon glyphicon-plus'></i><span>Dosya Seç...</span></span>";
-	var progressContainer = "<div class='container progress_container'></div>"
-	var createFileProgress = "<div class='col-xs-2 progress_col'><div class='uploaded-name'></div><div class='uploaded-img'></div><div class='progress'><div class='progress-bar' role='progressbar' style='width:0%;'>0%</div></div></div>"
-	var createDragArea = "<div class='dragArea'>Kaydýr Býrak bak ne olacak!</div>"
-*/
+
 	if ($(this).length > 0) {
 		
 		$.each(this, function(index, element) {
 			if (this.nodeName != 'INPUT' && $(this).attr("type") != 'file')  {
-				console.log('elin boþ gelmiþin');
+				console.log('Lutfen input type=file nesnesi belirtin');
 				var firstInput = $(settings.createInput);
 				$(element).after(firstInput);
 				element = firstInput[0];
 			} else {
-				console.log('çok doðru gelmiþin');
+				console.log('Sistem Devrede');
 			}
 			
 			
@@ -88,7 +81,7 @@ $.fn.platinForm = function (options){
 		
 		var reader = new FileReader();
 		reader.onloadend = function(e) {
-		console.log(e.target);
+		//console.log(e.target);
 			var image = $('<img height=50>').attr('src', e.target.result);
 			fileProgress.find(".uploaded-img").append(image);
 		};
@@ -122,8 +115,8 @@ $.fn.platinForm = function (options){
 			   xhr.addEventListener("progress", function(evt) {
 				   if (evt.lengthComputable) {
 					   var percentComplete = evt.loaded / evt.total;
-					   console.log("evet:" + percentComplete.toString() + "%");
-					   //Do something with download progress
+					   console.log("Yukleme:" + percentComplete.toString() + "%");
+					   
 				   }
 			   }, false);
 
@@ -143,7 +136,6 @@ $.fn.platinForm = function (options){
 			{
 				if(typeof data.error === 'undefined')
 				{
-					// Success so call function to process the form
 					console.log("baþarýlý");
 					console.log(data);
 					console.log(jqXHR.status);
@@ -153,7 +145,6 @@ $.fn.platinForm = function (options){
 				}
 				else
 				{
-					// Handle errors here
 					console.log('ERRORS: ' + data.error);
 					$(".fileupload-progress .progress").removeClass("active");
 					$(".fileupload-progress .progress div").removeClass("progress-bar-info");
@@ -162,7 +153,7 @@ $.fn.platinForm = function (options){
 			},
 			error: function(jqXHR, textStatus, errorThrown)
 			{
-				// Handle errors here
+
 				console.log('ERRORS: ' + textStatus);
 
 				

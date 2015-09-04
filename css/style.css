@@ -31,12 +31,19 @@ table {
 }
 .dragArea{
 border: 3px dashed silver;
-height: 500px;
-width: 500px;
+height: 250px;
+width: 250px;
 text-align: center;
 color: #555;
-padding: 50px;
+background:url('../img/img_upload.png') no-repeat center center;
 }
-.dragArea:hover{
+.dragareatext{
+position:relative;
+top:70%;
+}
+.hover{
 border: 4px dashed #999;
+}
+.progress_container{
+margin:0;
 }

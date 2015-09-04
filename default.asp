@@ -14,7 +14,6 @@
 
 <form style="margin:0;padding:0;" method="post" enctype="multipart/form-data" action="uploader.asp?islem=kaydet" onsubmit="document.getElementById('resim_gonder_btn').disabled='disabled';" autocomplete="off">
 	<input type="file" name="resim_kaynak" id="resim_kaynak" style="padding:4px;width:300px;" />
-	<input type="submit" id="resim_gonder_btn" value="Resmi Gönder" style="background:url(images/form_butonlar.gif) repeat-x;border:none;padding:5px;margin:0 0 0 5px;border:1px solid silver;font:12px arial;cursor:pointer;" />
 </form>
 <script>
 $("#resim_kaynak").platinForm();
